@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 bool isArmstrongNumber(int number)
 {
@@ -7,8 +8,8 @@ bool isArmstrongNumber(int number)
 	int temp, rem;
 	int sum = 0, n = 0;
 
-	std::cout << "Enter positive number: ";
-	std::cin >> number;
+//	std::cout << "Enter positive number: ";
+//	std::cin >> number;
 
 	temp = number;
 
@@ -53,8 +54,8 @@ void printIsArmstrong(int number)
 	}
 }
 
-//int main(int argc, char* argv[])
-int main()
+int main(int argc, char* argv[])
+//int main()
 {
 	// What is this program expected to do?
 	// - Shows whether an argument is an armstrong number.
@@ -76,11 +77,11 @@ int main()
 	//
 
 	// Make sure there are some program arguments available.
-	//	if (argc <= 1)
-	//	{
-	//		std::cout << "No program arguments found." << std::endl;
-	//		return 1;
-	//	}
+	if (argc <= 1)
+	{
+		std::cout << "No program arguments found." << std::endl;
+		return 1;
+	}
 
 	//int readNumber = 0;
 	int number = 0;
@@ -88,7 +89,14 @@ int main()
 	//	std::string argumentAsString = argv[1];
 	
 	// TODO: read number / cast to integer
-
-	printIsArmstrong(number);
+	try
+	{
+		number = std::stoi(argv[1]);
+		printIsArmstrong(number);
+	}
+	catch (...)
+	{
+		std::cout << "NAN" << std::endl;
+	}
 	return 0;
 }
