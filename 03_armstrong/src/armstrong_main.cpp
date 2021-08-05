@@ -1,10 +1,45 @@
 #include <iostream>
+#include <string>
 
 bool isArmstrongNumber(int number)
 {
 	// TODO: implement some functionality to see if this number is an armstrong number
 
-	return false;
+	int temp, rem;
+	int sum = 0, n = 0;
+
+//	std::cout << "Enter positive number: ";
+//	std::cin >> number;
+
+	temp = number;
+
+	//logic to find the number of digits in a given number
+	while (temp != 0)
+	{
+		temp = temp / 10;
+		n++;
+	}
+
+	temp = number;
+
+	while (temp != 0)
+	{
+		rem = temp % 10; //storing individual digit of original number in rem
+		sum = sum + pow(rem, n); //computing power of digits of original number
+		temp = temp / 10;
+	}
+
+	//if condition for comparing sum with original number
+	if (number == sum)
+	{
+//		std::cout << number << " is an Armstrong number" << std::endl;
+		return true;
+	}
+	else
+	{
+//		std::cout << number << " is not an Armstrong number" << std::endl;
+		return false;
+	}
 }
 
 void printIsArmstrong(int number)
@@ -19,7 +54,8 @@ void printIsArmstrong(int number)
 	}
 }
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
+//int main()
 {
 	// What is this program expected to do?
 	// - Shows whether an argument is an armstrong number.
@@ -47,12 +83,20 @@ int main(int argc, char *argv[])
 		return 1;
 	}
 
-	int readNumber = 0;
+	//int readNumber = 0;
+	int number = 0;
 	// Get the first argument
-	std::string argumentAsString = argv[1];
+	//	std::string argumentAsString = argv[1];
 	
 	// TODO: read number / cast to integer
-
-	printIsArmstrong(readNumber);
+	try
+	{
+		number = std::stoi(argv[1]);
+		printIsArmstrong(number);
+	}
+	catch (...)
+	{
+		std::cout << "NAN" << std::endl;
+	}
 	return 0;
 }

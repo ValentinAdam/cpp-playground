@@ -3,7 +3,7 @@
 
 // Define the maximum length for the name to use.
 // Specify the length of characters in the content (Excluding the terminator).
-#define MAX_NAME_LEN 10
+#define MAX_NAME_LEN 40
 #define MAX_TITLE_LEN 50
 
 struct Author
@@ -20,6 +20,9 @@ struct Author
 	void print()
 	{
 		std::cout << name << std::endl;
+//		std::cout << "Author #" << id << std::endl;
+//		std::cout << "------" << std::endl;
+//		std::cout << this->name << std::endl;
 	}
 };
 
@@ -34,6 +37,7 @@ struct Book
 	void addAuthor(Author author)
 	{
 		// TODO: add an author to the container authors array.
+		authors[numAuthors] = author;
 		numAuthors++;
 	}
 
@@ -41,9 +45,15 @@ struct Book
 	{
 		std::cout << "Book #" << id << std::endl;
 		std::cout << "------" << std::endl;
-		std::cout << this->title << std::endl;
+		std::cout << this-> title << std::endl;
 
 		// TODO: add all authors
+//		std::cout << this-> authors << std::endl;
+		for (int i = 0; i < numAuthors; i++)
+		{
+			std::cout << "Author: " << authors[i].name << '\n';
+		}
+
 
 	}
 };
@@ -58,36 +68,50 @@ int main()
 	Book book1;
 	Book book2;
 	Book book3;
+	Book book4;
 	Author author;
 
 	// Load the data into books
 	book1.id = 1;
 	book1.numAuthors = 0;
-	setBookName(book1, u8"The origin of truth (nu există, nu o căutați)");
+	setBookName(book1, "The origin of truth");
 	author.setName("Gusti");
 	book1.addAuthor(author);
+//	author.print();
 
 	book2.id = 2;
 	book2.numAuthors = 0;
 	setBookName(book2, "Arhanghelul Raul");
 	author.setName("Ovidiu Eftimie");
 	book2.addAuthor(author);
+//	author.print();
 
 	book3.id = 3;
 	book3.numAuthors = 0;
 	setBookName(book3, "Factfulness");
 	author.setName("Hans Rosling");
 	book3.addAuthor(author);
+//	author.print();
 
 	author.setName("Ola Rosling");
 	book3.addAuthor(author);
-	
+//	author.print();
+
 	author.setName("Anna Rosling Ronnlund");
 	book3.addAuthor(author);
+//	author.print();
+
+	book4.id = 4;
+	book4.numAuthors = 0;
+	setBookName(book4, "Clean Architecture: Craftsman Software Structure");
+	author.setName("Robert Martin");
+	book4.addAuthor(author);
+	author.print();
 
 	// Display the books
 	book1.print();
 	book2.print();
 	book3.print();
+	book4.print();
 	return 0;
 }

@@ -47,10 +47,6 @@ int main(int argc, char *argv[])
 	//should use atoi?
 	// or std::stoi?
 
-	std::cout << argumentAsString << std::endl; // i think this should be removed
-
-	// --------------- stop
-
 	try
 	{
 		number = std::stoi(argv[1]);
@@ -60,6 +56,12 @@ int main(int argc, char *argv[])
 	{
 		std::cout << "NAN" << std::endl;
 	}
+
+	//std::cout << argumentAsString << std::endl; // i think this should be removed
+
+	// --------------- stop
+
+	//printOddOrEven(number);
 
 
 	return 0;
