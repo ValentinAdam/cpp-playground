@@ -13,16 +13,32 @@ private:
 
 	// TODO: store the data
 	// hints: you can use std::string, std::vectors + string, char**, vector<vector<char>>, etc
+	char** matrix;
+
 public:
 	Matrix(size_t numColumnsX, size_t numLinesY)
 		// TODO: add functionality
 	{
-		// TODO: add functionality
+		column_count = numColumnsX;
+		line_count = numLinesY;
+		matrix = new char* [line_count];
+		int i;
+
+		for (i = 0; i < line_count;i++)
+		{
+			matrix[i] = new char[column_count];
+		}
+
 	}
 
 	// Set an entire line
 	void setLine(size_t line_number, const std::string& data)
 	{
+		int i;
+		for (i = 0; i < column_count; i++)
+		{
+			matrix[line_number][i] = data[i];
+		}
 	}
 
 	//OPTIONAL
@@ -55,12 +71,26 @@ public:
 	void setCellXY(size_t x, size_t y, char cell_content)
 	{
 		// TODO: add functionality
+		if (x < column_count && y < line_count)
+		{
+			matrix[y][x] = cell_content;
+		}
 	}
 
 	void print()
 	{
 		// print all lines and columns
 		// TODO: add functionality
+		int i,j;
+		for (i = 0; i < line_count; i++)
+		{
+			for (j = 0; j < column_count; j++)
+			{
+				std::cout << matrix[i][j];
+			}
+
+			std::cout << '\n';
+		}
 	}
 };
 

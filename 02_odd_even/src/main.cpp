@@ -17,7 +17,7 @@ void printOddOrEven(int number)
 
 int main(int argc, char *argv[])
 {
-	int number = -13;
+	//	int number = -13;
 
 	// What is this program expected to do?
 	// - Shows whether an argument is an ODD or EVEN number.
@@ -49,10 +49,12 @@ int main(int argc, char *argv[])
 
 	try
 	{
-		number = std::stoi(argv[1]);
+		int number = std::stoi(argumentAsString);
 		printOddOrEven(number);
 	}
+
 	catch (...)
+
 	{
 		std::cout << "NAN" << std::endl;
 	}
