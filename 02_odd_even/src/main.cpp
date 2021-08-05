@@ -51,7 +51,18 @@ int main(int argc, char *argv[])
 
 	// --------------- stop
 
-	printOddOrEven(number);
+	try
+	{
+		number = std::stoi(argv[1]);
+		printOddOrEven(number);
+	}
+	catch (...)
+	{
+		std::cout << "NAN" << std::endl;
+	}
+
 
 	return 0;
 }
+
+
